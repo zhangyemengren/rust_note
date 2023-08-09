@@ -20,3 +20,7 @@ path = "examples/hello_world/print.rs"
 [[example]]
 name = "print_debug"
 path = "examples/hello_world/print_debug.rs"
+
+[[example]]
+name = "print_display"
+path = "examples/hello_world/print_display.rs"

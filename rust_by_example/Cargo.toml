@@ -28,3 +28,15 @@ path = "examples/hello_world/print_display.rs"
 [[example]]
 name = "primitives"
 path = "examples/primitives/primitives.rs"
+
+[[example]]
+name = "literals"
+path = "examples/primitives/literals.rs"
+
+[[example]]
+name = "tuples"
+path = "examples/primitives/tuples.rs"
+
+[[example]]
+name = "arrays_and_slices"
+path = "examples/primitives/arrays_and_slices.rs"

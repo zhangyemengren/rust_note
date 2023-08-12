@@ -40,3 +40,15 @@ path = "examples/primitives/tuples.rs"
 [[example]]
 name = "arrays_and_slices"
 path = "examples/primitives/arrays_and_slices.rs"
+
+[[example]]
+name = "structures"
+path = "examples/custom_types/structures.rs"
+
+[[example]]
+name = "enums"
+path = "examples/custom_types/enums.rs"
+
+[[example]]
+name = "constants"
+path = "examples/custom_types/constants.rs"

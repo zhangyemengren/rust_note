@@ -52,3 +52,7 @@ path = "examples/custom_types/enums.rs"
 [[example]]
 name = "constants"
 path = "examples/custom_types/constants.rs"
+
+[[example]]
+name = "variables"
+path = "examples/variables/variables.rs"

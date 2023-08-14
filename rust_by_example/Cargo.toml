@@ -56,3 +56,7 @@ path = "examples/custom_types/constants.rs"
 [[example]]
 name = "variables"
 path = "examples/variables/variables.rs"
+
+[[example]]
+name = "types"
+path = "examples/types/types.rs"

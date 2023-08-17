@@ -68,3 +68,47 @@ path = "examples/conversion/conversion.rs"
 [[example]]
 name = "expression"
 path = "examples/expression/expression.rs"
+
+[[example]]
+name = "if_else"
+path = "examples/flow_control/if_else.rs"
+
+[[example]]
+name = "loop"
+path = "examples/flow_control/loop.rs"
+
+[[example]]
+name = "while"
+path = "examples/flow_control/while.rs"
+
+[[example]]
+name = "for"
+path = "examples/flow_control/for.rs"
+
+[[example]]
+name = "match"
+path = "examples/flow_control/match.rs"
+
+[[example]]
+name = "match_destructuring"
+path = "examples/flow_control/match_destructuring.rs"
+
+[[example]]
+name = "match_guard"
+path = "examples/flow_control/match_guard.rs"
+
+[[example]]
+name = "match_binding"
+path = "examples/flow_control/match_binding.rs"
+
+[[example]]
+name = "if_let"
+path = "examples/flow_control/if_let.rs"
+
+[[example]]
+name = "let_else"
+path = "examples/flow_control/let_else.rs"
+
+[[example]]
+name = "while_let"
+path = "examples/flow_control/while_let.rs"

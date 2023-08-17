@@ -64,3 +64,7 @@ path = "examples/types/types.rs"
 [[example]]
 name = "conversion"
 path = "examples/conversion/conversion.rs"
+
+[[example]]
+name = "expression"
+path = "examples/expression/expression.rs"

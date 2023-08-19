@@ -83,7 +83,6 @@ fn main() {
     // 解除引用用途 *
     // 解构使用 &、ref、 和ref mut
 
-
     // 在 Rust 中，引用是一个轻量级的指针，它指向已经存在的数据。引用本身不会分配内存，它只是提供了对已存在数据的访问。
     // 因此，let reference = &4; 将创建一个指向整数字面量 4 的引用，并不会涉及到额外的内存分配。
     let reference = &4;
@@ -92,11 +91,8 @@ fn main() {
         // 使用模式匹配来解构这个引用并获取其内部的值。
         // 在这个例子中，你可以使用 &val 这样的模式，其中 val 将会被绑定到引用指向的值。
         // 这是因为 Rust 的匹配语法会根据模式的形状来解构数据，包括引用的解构。
+        // 4 => println!("Got 4!"),
         &references_val => println!("Got a value via destructuring: {:?}", references_val),
-    }
-    // match 语句默认是会移动值的 所以当reference是移动语义 且不想移动时可以匹配引用 这样解构时需要多一个&符号
-    match &reference {
-        &&data => println!("Got a value via destructuring: {:?}", data),
     }
 
     // 为避免使用 `&`，应在匹配前取消引用。
@@ -105,13 +101,10 @@ fn main() {
     }
 
 
-    // 如果不是从引用开始呢？引用`是一个`&`。因为右边已经是引用了。
-    // 这不是引用，因为右边不是引用。
+    // 如果不是从引用开始呢？引用`是一个`&`。
+    // 这不是引用，因为右边没有`&`。
     let _not_a_reference = 3;
 
-    // Rust provides `ref` for exactly this purpose. It modifies the
-    // assignment so that a reference is created for the element; this
-    // reference is assigned.
     // Rust 正是为此提供了 `ref`。它修改了赋值，从而为元素创建一个引用
     // 这个值被赋与引用
     let ref _is_a_reference = 3;
@@ -135,6 +128,13 @@ fn main() {
             println!("We added 10. `mut_value`: {:?}", m);
         },
     }
+    // 防止值被移动时ref的用法
+    let msg = Message::Write("hello".to_string());
+    match msg {
+        // Message::Write(v) => println!("v = {}", v) 此时v被移动了，不能再使用 使用ref获取引用
+        Message::Write(ref v) => println!("v = {}", v)
+    }
+    println!("msg = {:?}", msg);
 
     // 类似地，struct可以被解构，如下所示：
     // Try changing the values in the struct to see what happens
@@ -152,8 +152,9 @@ fn main() {
         // 这将导致错误：模式未提及字段 `x`.
         //Foo { y } => println!("y = {}", y),
     }
-}
 
+}
+#[derive(Debug)]
 struct Foo {
     x: (u32, u32),
     y: u32,
@@ -170,4 +171,9 @@ enum Color {
     HSL(u32, u32, u32),
     CMY(u32, u32, u32),
     CMYK(u32, u32, u32, u32),
+}
+
+#[derive(Debug)]
+enum Message {
+    Write(String),
 }

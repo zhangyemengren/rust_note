@@ -112,3 +112,47 @@ path = "examples/flow_control/let_else.rs"
 [[example]]
 name = "while_let"
 path = "examples/flow_control/while_let.rs"
+
+[[example]]
+name = "fn"
+path = "examples/functions/fn.rs"
+
+[[example]]
+name = "methods"
+path = "examples/functions/methods.rs"
+
+[[example]]
+name = "closures"
+path = "examples/functions/closures.rs"
+
+[[example]]
+name = "closures_capture"
+path = "examples/functions/closures_capture.rs"
+
+[[example]]
+name = "closures_input_parameters"
+path = "examples/functions/closures_input_parameters.rs"
+
+[[example]]
+name = "closures_type_anonymity"
+path = "examples/functions/closures_type_anonymity.rs"
+
+[[example]]
+name = "closures_input_functions"
+path = "examples/functions/closures_input_functions.rs"
+
+[[example]]
+name = "closures_output_parameters"
+path = "examples/functions/closures_output_parameters.rs"
+
+[[example]]
+name = "closures_iter_find"
+path = "examples/functions/closures_iter_find.rs"
+
+[[example]]
+name = "hof"
+path = "examples/functions/hof.rs"
+
+[[example]]
+name = "diverging"
+path = "examples/functions/diverging.rs"

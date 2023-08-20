@@ -156,3 +156,23 @@ path = "examples/functions/hof.rs"
 [[example]]
 name = "diverging"
 path = "examples/functions/diverging.rs"
+
+[[example]]
+name = "visibility"
+path = "examples/modules/visibility.rs"
+
+[[example]]
+name = "visibility_struct"
+path = "examples/modules/visibility_struct.rs"
+
+[[example]]
+name = "use"
+path = "examples/modules/use.rs"
+
+[[example]]
+name = "super_self"
+path = "examples/modules/super_self.rs"
+
+[[example]]
+name = "file_hierarchy"
+path = "examples/modules/file_hierarchy.rs"

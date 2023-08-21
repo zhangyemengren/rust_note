@@ -176,3 +176,7 @@ path = "examples/modules/super_self.rs"
 [[example]]
 name = "file_hierarchy"
 path = "examples/modules/file_hierarchy.rs"
+
+[[example]]
+name = "generics"
+path = "examples/generics/generics.rs"

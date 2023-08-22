@@ -208,3 +208,11 @@ path = "examples/generics/where.rs"
 [[example]]
 name = "generics_new_types"
 path = "examples/generics/new_types.rs"
+
+[[example]]
+name = "generics_associated_type"
+path = "examples/generics/associated_type.rs"
+
+[[example]]
+name = "generics_phantom"
+path = "examples/generics/phantom.rs"

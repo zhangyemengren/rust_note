@@ -180,3 +180,31 @@ path = "examples/modules/file_hierarchy.rs"
 [[example]]
 name = "generics"
 path = "examples/generics/generics.rs"
+
+[[example]]
+name = "generics_functions"
+path = "examples/generics/functions.rs"
+
+[[example]]
+name = "generics_impl"
+path = "examples/generics/impl.rs"
+
+[[example]]
+name = "generics_traits"
+path = "examples/generics/traits.rs"
+
+[[example]]
+name = "generics_bounds"
+path = "examples/generics/bounds.rs"
+
+[[example]]
+name = "generics_multi_bounds"
+path = "examples/generics/multi_bounds.rs"
+
+[[example]]
+name = "generics_where"
+path = "examples/generics/where.rs"
+
+[[example]]
+name = "generics_new_types"
+path = "examples/generics/new_types.rs"

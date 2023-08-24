@@ -216,3 +216,19 @@ path = "examples/generics/associated_type.rs"
 [[example]]
 name = "generics_phantom"
 path = "examples/generics/phantom.rs"
+
+[[example]]
+name = "scope_raii"
+path = "examples/scope/raii.rs"
+
+[[example]]
+name = "scope_move"
+path = "examples/scope/move.rs"
+
+[[example]]
+name = "scope_move_mut"
+path = "examples/scope/move_mut.rs"
+
+[[example]]
+name = "move_partial"
+path = "examples/scope/move_partial.rs"

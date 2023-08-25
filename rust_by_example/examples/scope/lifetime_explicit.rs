@@ -22,7 +22,7 @@ fn failed_borrow<'a>() {
     // ERROR: `_x` does not live long enough
     let y: &'a i32 = &_x;
     // 在函数内部使用生命周期 `'a` 作为显式类型标注将导致失败，因为 `&_x` 的
-    // 生命周期比 `y` 的短。短生命周期不能强制转换成长生命周期。
+    // 生命周期比 `y` 的短。短生命周期不能强制转换成长生命周期。('a为 'static 和_x是函数的生命周期)
 }
 
 fn main() {

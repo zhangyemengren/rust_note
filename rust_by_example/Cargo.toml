@@ -252,3 +252,19 @@ path = "examples/scope/borrow_ref.rs"
 [[example]]
 name = "scope_lifetime_explicit"
 path = "examples/scope/lifetime_explicit.rs"
+
+[[example]]
+name = "scope_lifetime_fn"
+path = "examples/scope/lifetime_fn.rs"
+
+[[example]]
+name = "scope_lifetime_bounds"
+path = "examples/scope/lifetime_bounds.rs"
+
+[[example]]
+name = "scope_lifetime_coercion"
+path = "examples/scope/lifetime_coercion.rs"
+
+[[example]]
+name = "scope_lifetime_static"
+path = "examples/scope/lifetime_static.rs"

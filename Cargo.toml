@@ -1,4 +1,5 @@
 [workspace]
 members = [
-    "rust_by_example"
+    "rust_by_example",
+    "hello_algo",
 ]

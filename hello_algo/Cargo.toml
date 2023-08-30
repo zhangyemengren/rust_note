@@ -1,9 +1,0 @@
-[package]
-name = "hello_algo"
-version = "0.1.0"
-edition = "2021"
-
-
-[[example]]
-name = "array"
-path = "examples/array.rs"

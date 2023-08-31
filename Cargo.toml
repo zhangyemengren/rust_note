@@ -3,3 +3,4 @@ members = [
     "rust_by_example",
     "ffi",
 ]
+resolver = "2"

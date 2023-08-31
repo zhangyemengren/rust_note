@@ -1,6 +1,6 @@
 [workspace]
 members = [
     "rust_by_example",
-    "ffi",
+    "ffi/*",
 ]
 resolver = "2"

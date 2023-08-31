@@ -28,3 +28,5 @@ clang -dynamiclib -o libmylib.dylib fn_a.o fn_b.o  # 在 macOS 系统上
 clang -c fn_a.c fn_b.c
 ar rcs libmylib.a fn_a.o fn_b.o
 ```
+
+### c_fn 项目直接使用cc编译c函数 

@@ -1,6 +1,6 @@
 # ffi 学习项目
 ## 目标
-- [ ] 在rust调用c
+- [x] 在rust调用c
 - [ ] 在js调用rust
 
 ## third_party
@@ -30,3 +30,6 @@ ar rcs libmylib.a fn_a.o fn_b.o
 ```
 
 ### c_fn 项目直接使用cc编译c函数 
+- cc 需要自己声明extern "C" 函数签名等 rust-bindgen 会自动生成绑定
+- cc 不需要头文件及编译后的库文件 build会自动生成c库文件 rust-bindgen需要编译后的库及头文件去查找
+- c_lib项目中的源文件fn_a.c fn_b.c是不需要的 仅用于知道库文件内容及自测用

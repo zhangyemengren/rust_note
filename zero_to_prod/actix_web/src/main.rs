@@ -1,4 +1,4 @@
-use actix_web::{get, web, App, HttpServer, Responder, HttpRequest};
+use actix_web::{ web, App, HttpServer, Responder, HttpRequest};
 
 
 async fn greet(req: HttpRequest) -> impl Responder {

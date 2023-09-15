@@ -2,5 +2,6 @@
 members = [
     "rust_by_example",
     "ffi/*",
+    "zero_to_prod/*",
 ]
 resolver = "2"

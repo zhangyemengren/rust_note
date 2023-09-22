@@ -3,7 +3,7 @@
   - 安装docker desktop
   - 下载postgres官方镜像
 - sqlx cli
-  - cargo install sqlx-cli --no-default-features --features postgres
+  - cargo install sqlx-cli --no-default-features --features native-tls,postgres
 ## scripts 文件夹下的脚本
 
 ### init_db.sh

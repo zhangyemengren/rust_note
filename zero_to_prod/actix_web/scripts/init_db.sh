@@ -1,6 +1,17 @@
 #!/usr/bin/env zsh
 set -x
 set -eo pipefail
+xi
+if ! [ -x "$(command -v psql)" ]; then
+  echo >&2 "Error: psql is not installed."
+  exit 1
+fi
+
+if ! [ -x "$(command -v sqlx)" ]; then
+  echo >&2 "Error: sqlx is not installed."
+  echo >&2 "Please install sqlx by running: cargo install sqlx-cli --no-default-features --features native-tls,postgres"
+  exit 1
+fi
 
 #Check if custom user has been set, otherwise default to 'postgres'
 DB_USER=${POSTGRES_USER:=postgres}
@@ -13,16 +24,19 @@ DB_PORT="${POSTGRES_PORT:=5432}"
 #Check if custom host has been set, otherwise default to 'localhost'
 DB_HOST="${POSTGRES_HOST:=localhost}"
 
-#Launch postgres using Docker
-docker run \
-  --name postgres \
-  -e POSTGRES_USER=${DB_USER} \
-  -e POSTGRES_PASSWORD=${DB_PASSWORD} \
-  -e POSTGRES_DB=${DB_NAME} \
-  -h ${DB_HOST} \
-  -p "${DB_PORT}":5432 \
-  -d postgres \
-  postgres -N 1000
+# Allow to skip Docker if a dockerized Postgres instance is already running
+if [[ -z "${SKIP_DOCKER}" ]]
+then
+  docker run \
+    --name postgres \
+    -e POSTGRES_USER=${DB_USER} \
+    -e POSTGRES_PASSWORD=${DB_PASSWORD} \
+    -e POSTGRES_DB=${DB_NAME} \
+    -h ${DB_HOST} \
+    -p "${DB_PORT}":5432 \
+    -d postgres \
+    postgres -N 1000
+fi
 
 # Keep pinging Postgres until it's ready to accept commands
 export PGPASSWORD="${DB_PASSWORD}"
@@ -36,3 +50,6 @@ done
 DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
 export DATABASE_URL
 sqlx database create
+sqlx migrate run
+
+>&2 echo "Postgres has been migrated, ready to go!"

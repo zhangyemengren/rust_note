@@ -2,6 +2,6 @@
 members = [
     "rust_by_example",
     "ffi/*",
-    "zero_to_prod/*",
+    "too_many_lists",
 ]
 resolver = "2"

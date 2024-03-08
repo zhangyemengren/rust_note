@@ -10,17 +10,17 @@
 /// 2 复合类型
 /// 数组就像[1, 2, 3]
 /// 元组就像(1, true)
-fn main(){
+fn main() {
     // 变量总是可以带有类型注释。数字还可以通过后缀或默认情况进行注释。
     // 整数默认为i32，浮点数默认为f64。请注意，Rust 还可以从上下文推断类型。
     let logical: bool = true;
 
-    let a_float: f64 = 1.0;  // 常规注释
-    let an_integer   = 5i32; // 后缀注释
+    let a_float: f64 = 1.0; // 常规注释
+    let an_integer = 5i32; // 后缀注释
 
     //默认类型
-    let default_float   = 3.0; // `f64`
-    let default_integer = 7;   // `i32`
+    let default_float = 3.0; // `f64`
+    let default_integer = 7; // `i32`
 
     // 可以从上下文推断类型
     let mut inferred_type = 12; // i64 类型是来自另一行推断出来的。

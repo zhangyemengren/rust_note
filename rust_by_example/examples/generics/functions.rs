@@ -2,8 +2,8 @@
 /// 使用泛型函数有时需要显式指定类型参数。如果在返回类型为泛型的情况下调用函数，或者编译器没有足够的信息来推断必要的类型参数，则可能会出现这种情况。
 /// 具有显式指定类型参数的函数调用如下所示：fun::<A, B, ...>()。
 
-struct A;          // 具体类型 `A`.
-struct S(A);       // 具体类型 `S`.
+struct A; // 具体类型 `A`.
+struct S(A); // 具体类型 `S`.
 struct SGen<T>(T); // 泛型类型 `SGen`.
 
 // 以下函数都获得传递给它们的变量的所有权，并立即超出范围，释放该变量。
@@ -26,8 +26,8 @@ fn generic<T>(_s: SGen<T>) {}
 
 fn main() {
     // 使用非泛型函数
-    reg_fn(S(A));          // Concrete type.
-    gen_spec_t(SGen(A));   // Implicitly specified type parameter `A`.
+    reg_fn(S(A)); // Concrete type.
+    gen_spec_t(SGen(A)); // Implicitly specified type parameter `A`.
     gen_spec_i32(SGen(6)); // Implicitly specified type parameter `i32`.
 
     // 显式指定类型参数 `char` to `generic()`.

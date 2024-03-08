@@ -9,7 +9,6 @@
 ///     my_first_function();
 /// }
 /// 您可以使用 as 关键字将导入绑定到不同的名称：
-
 // Bind the `deeply::nested::function` path to `other_function`.
 use deeply::nested::function as other_function;
 

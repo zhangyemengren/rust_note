@@ -1,5 +1,5 @@
 use c_lib::{printInteger, printString};
-use std::ffi::{CString};
+use std::ffi::CString;
 fn main() {
     unsafe {
         let input_string = "Hello, FFI!";

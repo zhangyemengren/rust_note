@@ -10,23 +10,25 @@
 /// 这是因为如果可以进行转移，那么任何类型的借用也应该是可能的。请注意，反之则不然。如果参数注释为Fn，则不允许使用&mut T或 T捕获变量。不过，&T是允许的。
 ///
 
-
 // Fn在以下示例中，尝试交换、FnMut、 和 的用法，FnOnce看看会发生什么：
 // 将闭包作为参数并调用它的函数。
 // <F> 表示 F 是“泛型参数”
-fn apply<F>(f: F) where
-// 该闭包不接受任何输入，也不返回任何内容。
-    F: FnOnce() {
+fn apply<F>(f: F)
+where
+    // 该闭包不接受任何输入，也不返回任何内容。
+    F: FnOnce(),
+{
     // ^ TODO: Try changing this to `Fn` or `FnMut`.
 
     f();
 }
 
 // A function which takes a closure and returns an `i32`.
-fn apply_to_3<F>(f: F) -> i32 where
-// The closure takes an `i32` and returns an `i32`.
-    F: Fn(i32) -> i32 {
-
+fn apply_to_3<F>(f: F) -> i32
+where
+    // The closure takes an `i32` and returns an `i32`.
+    F: Fn(i32) -> i32,
+{
     f(3)
 }
 

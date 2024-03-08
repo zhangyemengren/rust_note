@@ -5,7 +5,6 @@
 /// 经典的C 结构体
 /// 单元结构体是无字段的，对于泛型很有用。
 
-
 #[derive(Debug)]
 struct Person {
     name: String,
@@ -54,11 +53,17 @@ fn main() {
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // 解构(需要声明具体结构体)
-    let Point { x: left_edge, y: top_edge } = point;
+    let Point {
+        x: left_edge,
+        y: top_edge,
+    } = point;
 
     let _rectangle = Rectangle {
         // 结构体实例化也是一个表达式
-        top_left: Point { x: left_edge, y: top_edge },
+        top_left: Point {
+            x: left_edge,
+            y: top_edge,
+        },
         // 当字段与值相同时 可省略冒号：和值
         bottom_right,
     };

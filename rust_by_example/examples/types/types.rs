@@ -5,7 +5,6 @@
 /// 整数类型之间的转换规则通常遵循 C 约定，除非 C 具有未定义的行为。 Rust 中明确定义了整型类型之间所有强制转换的行为。
 /// 类型推断引擎非常智能。它不仅仅在初始化期间查看值表达式的类型。它还研究了之后如何使用变量来推断其类型。
 
-
 // type语句可用于为现有类型指定新名称。类型必须有UpperCamelCase名称，否则编译器会发出警告。
 // 别名的主要用途是减少样板代码
 type NanoSecond = u64;
@@ -17,10 +16,12 @@ fn main() {
     let inches: Inch = 2 as U64;
 
     // 请注意，类型别名aliases不提供任何额外的类型安全性，因为别名不是新类型
-    println!("{} nanoseconds + {} inches = {} unit?",
-             nanoseconds,
-             inches,
-             nanoseconds + inches);
+    println!(
+        "{} nanoseconds + {} inches = {} unit?",
+        nanoseconds,
+        inches,
+        nanoseconds + inches
+    );
     let decimal = 65.4321_f32;
 
     // Error! 无隐式转换
@@ -91,7 +92,10 @@ fn main() {
         // 300.0 as u8 is 44 (-> 300 - 256 = 44)
         println!(" 300.0 as u8 is : {}", 300.0_f32.to_int_unchecked::<u8>());
         // -100.0 as u8 is 156(-> -100 + 256 = 156)
-        println!("-100.0 as u8 is : {}", (-100.0_f32).to_int_unchecked::<u8>());
+        println!(
+            "-100.0 as u8 is : {}",
+            (-100.0_f32).to_int_unchecked::<u8>()
+        );
         // nan as u8 is 0
         println!("   nan as u8 is : {}", f32::NAN.to_int_unchecked::<u8>());
     }

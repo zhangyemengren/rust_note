@@ -22,7 +22,6 @@ impl Drop for ToDrop {
     }
 }
 
-
 fn main() {
     // 在堆上分配一个整数
     let _box2 = Box::new(5i32);

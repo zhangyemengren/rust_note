@@ -13,18 +13,17 @@ fn main() {
         print!("{} is zero", n);
     } // 普通表达式 没有分号
 
-    let big_n =
-        if n < 10 && n > -10 {
-            println!(", and is a small number, increase ten-fold");
+    let big_n = if n < 10 && n > -10 {
+        println!(", and is a small number, increase ten-fold");
 
-            // 该表达式返回一个“i32”。
-            10 * n
-        } else {
-            println!(", and is a big number, halve the number");
+        // 该表达式返回一个“i32”。
+        10 * n
+    } else {
+        println!(", and is a big number, halve the number");
 
-            // 该表达式也必须返回“i32”。
-            n / 2
-        }; //  不要忘记在这里加分号！所有“let”绑定都需要它。
+        // 该表达式也必须返回“i32”。
+        n / 2
+    }; //  不要忘记在这里加分号！所有“let”绑定都需要它。
 
     println!("{} -> {}", n, big_n);
 }

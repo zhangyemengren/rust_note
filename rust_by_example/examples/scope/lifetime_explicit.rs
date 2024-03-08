@@ -17,7 +17,7 @@ fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
 
 // 一个不带参数的函数，但有一个生命周期参数“a”。
 fn failed_borrow<'a>() {
-    let _x  = 12;
+    let _x = 12;
 
     // ERROR: `_x` does not live long enough
     let y: &'a i32 = &_x;

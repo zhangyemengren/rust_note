@@ -20,7 +20,7 @@ fn main() {
     // 闭包是匿名的，这里我们将它们绑定到引用
     // 注解与函数注解相同但是是可选的，就像包装主体的“{}”一样。这些无名函数被分配给适当命名的变量。
     let closure_annotated = |i: i32| -> i32 { i + outer_var };
-    let closure_inferred  = |i| i + outer_var;
+    let closure_inferred = |i| i + outer_var;
 
     // Call the closures.
     println!("closure_annotated: {}", closure_annotated(1));
@@ -33,5 +33,4 @@ fn main() {
     // 返回类型是推断的。
     let one = || 1;
     println!("closure returning one: {}", one());
-
 }

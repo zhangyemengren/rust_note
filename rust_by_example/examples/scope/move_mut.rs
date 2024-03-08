@@ -1,6 +1,5 @@
 /// 当所有权转移时，数据的可变性可以改变。
 
-
 fn main() {
     let immutable_box = Box::new(5u32);
 

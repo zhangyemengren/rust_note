@@ -12,7 +12,6 @@ impl Years {
     }
 }
 
-
 impl Days {
     /// truncates partial years
     pub fn to_years(&self) -> Years {

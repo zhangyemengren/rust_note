@@ -29,7 +29,7 @@ fn main() {
     let _char: SingleGen<char> = SingleGen('a');
 
     // `SingleGen` 还可以隐式指定类型参数：
-    let _t    = SingleGen(A); // Uses `A` defined at the top.
-    let _i32  = SingleGen(6); // Uses `i32`.
+    let _t = SingleGen(A); // Uses `A` defined at the top.
+    let _i32 = SingleGen(6); // Uses `i32`.
     let _char = SingleGen('a'); // Uses `char`.
 }

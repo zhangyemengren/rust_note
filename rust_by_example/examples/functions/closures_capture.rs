@@ -27,7 +27,6 @@ fn main() {
     // 最终使用“print”后允许移动或重新借用
     let _color_moved = color;
 
-
     let mut count = 0;
     // 增加 `count` 的闭包可以采用 `&mut count` 或 `count`
     // 但 `&mut count` 的限制较少，因此需要这样做。立即借用“count”。
@@ -48,15 +47,12 @@ fn main() {
     // ^ TODO: try uncommenting this line.
     inc();
 
-
     // 闭包不再需要借用“&mut count”。因此它是
     // 因此它可以无错误地重新借用
     let _count_reborrowed = &mut count;
 
-
     // 非Copy类型。
     let movable = Box::new(3);
-
 
     // `mem::drop` 需要 `T`，所以这必须按值获取。
     // copy类型将复制到闭包中，而不影响原始类型。非Copy类型必须移动，因此“可移动值”立即移动到闭包中。

@@ -2,7 +2,6 @@
 /// enum 关键字允许创建一个类型，该类型可能是几种不同变体之一。
 /// 任何作为struct有效的变体在枚举中也有效。
 
-
 // 创建一个 `enum` 对网络事件进行分类。
 // 请注意名称和类型信息如何一起指定变体：
 // “PageLoad != PageUnload” 且 “KeyPress(char) != Paste(String)”。
@@ -48,7 +47,7 @@ fn inspect(event: WebEvent) {
         // Destructure `Click` into `x` and `y`.
         WebEvent::Click { x, y } => {
             println!("clicked at x={}, y={}.", x, y);
-        },
+        }
     }
 }
 /// C-like
@@ -69,10 +68,10 @@ enum Color {
 fn main() {
     let pressed = WebEvent::KeyPress('x');
     // `to_owned()` creates an owned `String` from a string slice.
-    let pasted  = WebEvent::Paste("my text".to_owned());
-    let click   = WebEvent::Click { x: 20, y: 80 };
-    let load    = WebEvent::PageLoad;
-    let unload  = WebEvent::PageUnload;
+    let pasted = WebEvent::Paste("my text".to_owned());
+    let click = WebEvent::Click { x: 20, y: 80 };
+    let load = WebEvent::PageLoad;
+    let unload = WebEvent::PageUnload;
 
     {
         // 可以使用该use声明将枚举的变体引入作用域。

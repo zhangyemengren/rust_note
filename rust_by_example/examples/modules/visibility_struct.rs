@@ -1,7 +1,6 @@
 /// 结构体的字段具有额外的可见性。可见性默认为私有，并且可以使用 pub 修饰符覆盖。
 /// 仅当从定义它的模块外部访问结构体时，这种可见性才重要，并且其目标是隐藏信息（封装）。
 
-
 mod my {
     // 具有通用类型“T”公共字段的公共结构
     pub struct OpenBox<T> {
@@ -16,16 +15,16 @@ mod my {
     impl<T> ClosedBox<T> {
         // 公共构造方法
         pub fn new(contents: T) -> ClosedBox<T> {
-            ClosedBox {
-                contents,
-            }
+            ClosedBox { contents }
         }
     }
 }
 
 fn main() {
     // 具有公共字段的公共结构可以照常构建
-    let open_box = my::OpenBox { contents: "public information" };
+    let open_box = my::OpenBox {
+        contents: "public information",
+    };
 
     // 并且他们的字段可以正常访问。
     println!("The open box contains: {}", open_box.contents);

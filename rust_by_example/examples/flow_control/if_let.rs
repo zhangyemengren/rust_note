@@ -93,11 +93,11 @@ fn main() {
 enum Foo {
     Bar,
     Baz,
-    Qux(u32)
+    Qux(u32),
 }
 #[derive(PartialEq)]
 enum Foo1 {
     Bar,
     Baz,
-    Qux
+    Qux,
 }

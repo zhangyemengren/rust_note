@@ -1,5 +1,3 @@
-
-
 fn main() {
     // 解构
     let triple = (0, -2, 3);
@@ -10,11 +8,11 @@ fn main() {
     match triple {
         // 解构第二个和第三个元素
         (0, y, z) => println!("First is `0`, `y` is {:?}, and `z` is {:?}", y, z),
-        (1, ..)  => println!("First is `1` and the rest doesn't matter"),
-        (.., 2)  => println!("last is `2` and the rest doesn't matter"),
-        (3, .., 4)  => println!("First is `3`, last is `4`, and the rest doesn't matter"),
+        (1, ..) => println!("First is `1` and the rest doesn't matter"),
+        (.., 2) => println!("last is `2` and the rest doesn't matter"),
+        (3, .., 4) => println!("First is `3`, last is `4`, and the rest doesn't matter"),
         // `..` 可用于忽略元组的其余部分
-        _      => println!("It doesn't matter what they are"),
+        _ => println!("It doesn't matter what they are"),
         // `_` 意味着不将值绑定到变量
     }
 
@@ -23,8 +21,7 @@ fn main() {
 
     match array {
         // 将第二个和第三个元素绑定到各自的变量
-        [0, second, third] =>
-            println!("array[0] = 0, array[1] = {}, array[2] = {}", second, third),
+        [0, second, third] => println!("array[0] = 0, array[1] = {}, array[2] = {}", second, third),
 
         // 可以用 _ 忽略单个值
         [1, _, third] => println!(
@@ -62,20 +59,17 @@ fn main() {
     println!("What color is it?");
 
     match color {
-        Color::Red   => println!("The color is Red!"),
-        Color::Blue  => println!("The color is Blue!"),
+        Color::Red => println!("The color is Red!"),
+        Color::Blue => println!("The color is Blue!"),
         Color::Green => println!("The color is Green!"),
-        Color::RGB(r, g, b) =>
-            println!("Red: {}, green: {}, and blue: {}!", r, g, b),
-        Color::HSV(h, s, v) =>
-            println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
-        Color::HSL(h, s, l) =>
-            println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
-        Color::CMY(c, m, y) =>
-            println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
-        Color::CMYK(c, m, y, k) =>
-            println!("Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
-                     c, m, y, k),
+        Color::RGB(r, g, b) => println!("Red: {}, green: {}, and blue: {}!", r, g, b),
+        Color::HSV(h, s, v) => println!("Hue: {}, saturation: {}, value: {}!", h, s, v),
+        Color::HSL(h, s, l) => println!("Hue: {}, saturation: {}, lightness: {}!", h, s, l),
+        Color::CMY(c, m, y) => println!("Cyan: {}, magenta: {}, yellow: {}!", c, m, y),
+        Color::CMYK(c, m, y, k) => println!(
+            "Cyan: {}, magenta: {}, yellow: {}, key (black): {}!",
+            c, m, y, k
+        ),
         // 不在需要额外的匹配，因为所有变体都已经过检查
     }
 
@@ -99,7 +93,6 @@ fn main() {
     match *reference {
         real_val => println!("Got a value via dereferencing: {:?}", real_val),
     }
-
 
     // 如果不是从引用开始呢？引用`是一个`&`。
     // 这不是引用，因为右边没有`&`。
@@ -126,13 +119,13 @@ fn main() {
             // 在添加任何内容前必须先取消引用
             *m += 10;
             println!("We added 10. `mut_value`: {:?}", m);
-        },
+        }
     }
     // 防止值被移动时ref的用法
     let msg = Message::Write("hello".to_string());
     match msg {
         // Message::Write(v) => println!("v = {}", v) 此时v被移动了，不能再使用 使用ref获取引用
-        Message::Write(ref v) => println!("v = {}", v)
+        Message::Write(ref v) => println!("v = {}", v),
     }
     println!("msg = {:?}", msg);
 
@@ -152,7 +145,6 @@ fn main() {
         // 这将导致错误：模式未提及字段 `x`.
         //Foo { y } => println!("y = {}", y),
     }
-
 }
 #[derive(Debug)]
 struct Foo {

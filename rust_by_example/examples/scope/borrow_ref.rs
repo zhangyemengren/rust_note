@@ -2,7 +2,10 @@
 /// 下面的示例显示了一些有用的实例：
 
 #[derive(Clone, Copy)]
-struct Point { x: i32, y: i32 }
+struct Point {
+    x: i32,
+    y: i32,
+}
 
 fn main() {
     let c = 'Q';
@@ -18,7 +21,10 @@ fn main() {
     // 解构结构时，“ref”也有效。
     let _copy_of_x = {
         // `ref_to_x` 是对 `point` 的 `x` 字段的引用。
-        let Point { x: ref ref_to_x, y: _ } = point;
+        let Point {
+            x: ref ref_to_x,
+            y: _,
+        } = point;
 
         // 返回“point”的“x”字段的副本。
         *ref_to_x
@@ -29,14 +35,20 @@ fn main() {
 
     {
         // ref` 可以与 `mut` 配对以获取可变引用。
-        let Point { x: _, y: ref mut mut_ref_to_y } = mutable_point;
+        let Point {
+            x: _,
+            y: ref mut mut_ref_to_y,
+        } = mutable_point;
 
         // 通过可变引用改变“mutable_point”的“y”字段。
         *mut_ref_to_y = 1;
     }
 
     println!("point is ({}, {})", point.x, point.y);
-    println!("mutable_point is ({}, {})", mutable_point.x, mutable_point.y);
+    println!(
+        "mutable_point is ({}, {})",
+        mutable_point.x, mutable_point.y
+    );
 
     // 包含指针的可变元组
     let mut mutable_tuple = (Box::new(5u32), 3u32);

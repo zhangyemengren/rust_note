@@ -16,10 +16,11 @@ fn main() {
                     optional = Some(i + 1);
                 }
                 // ^ 需要3次缩进！
-            },
+            }
             // Quit the loop when the destructure fails:
-            _ => { break; }
-            // ^ Why should this be required? There must be a better way!
+            _ => {
+                break;
+            } // ^ Why should this be required? There must be a better way!
         }
     }
     // 使用 while let 可以使这个序列变得更好：

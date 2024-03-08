@@ -13,8 +13,10 @@
 
 // `F` 必须实现 `Fn` 来实现不接受任何输入且不返回任何内容的闭包
 // - 这正是 `print` 所需要的。
-fn apply<F>(f: F) where
-    F: Fn() {
+fn apply<F>(f: F)
+where
+    F: Fn(),
+{
     f();
 }
 

@@ -1,5 +1,4 @@
 /// 可以使用 + 应用单个类型的多个边界。像平常一样，不同类型用 , 分隔。
-
 use std::fmt::{Debug, Display};
 
 fn compare_prints<T: Debug + Display>(t: &T) {

@@ -94,7 +94,6 @@ fn main() {
         p2: Point::new(1.0, 1.0),
     };
 
-
     // 错误！ `rectangle` 是不可变的，但是这个方法需要一个可变的对象
     //rectangle.translate(1.0, 0.0);
     // TODO ^ Try uncommenting this line

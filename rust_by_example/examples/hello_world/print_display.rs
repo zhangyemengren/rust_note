@@ -31,7 +31,7 @@ impl fmt::Display for Point2D {
 }
 
 struct List(Vec<i32>);
-impl fmt::Display for List{
+impl fmt::Display for List {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // 使用元组的下标来获取值，并创建一个 `vec` 的引用。
         let vec = &self.0;
@@ -40,14 +40,16 @@ impl fmt::Display for List{
         for (count, v) in vec.iter().enumerate() {
             // 对每个元素（第一个元素除外）加上逗号。
             // 使用 `?` 或 `try!` 来返回错误。
-            if count != 0 { write!(f, ", ")?; }
+            if count != 0 {
+                write!(f, ", ")?;
+            }
             write!(f, "{}", v)?;
         }
         // 加上配对中括号，并返回一个 fmt::Result 值。
         write!(f, "]")
     }
 }
-fn main(){
+fn main() {
     // 因为没有适合所有类型的理想样式，并且std lib也不会规定一种样式。
     // fmt::Display没有为任何其他通用容器实现。然后 fmt::Debug必须用于这些一般情况。
     let minmax = MinMax(0, 14);
@@ -56,12 +58,14 @@ fn main(){
     println!("Display: {}", minmax);
     println!("Debug: {:?}", minmax);
 
-    let big_range =   MinMax(-300, 300);
+    let big_range = MinMax(-300, 300);
     let small_range = MinMax(-3, 3);
 
-    println!("The big range is {big} and the small is {small}",
-             small = small_range,
-             big = big_range);
+    println!(
+        "The big range is {big} and the small is {small}",
+        small = small_range,
+        big = big_range
+    );
 
     let point = Point2D { x: 3.3, y: 7.2 };
 

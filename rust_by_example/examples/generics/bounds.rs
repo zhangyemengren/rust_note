@@ -9,7 +9,6 @@
 /// 错误！ `Vec<T>` 没有实现 `Display`。这实例化将会失败
 /// let s = S(vec![1]);
 /// 边界的另一个作用是允许泛型实例访问边界中指定的特征的方法。
-
 // 实现打印标记`{:?}`的特征
 use std::fmt::Debug;
 
@@ -18,13 +17,21 @@ trait HasArea {
 }
 
 impl HasArea for Rectangle {
-    fn area(&self) -> f64 { self.length * self.height }
+    fn area(&self) -> f64 {
+        self.length * self.height
+    }
 }
 
 #[derive(Debug)]
-struct Rectangle { length: f64, height: f64 }
+struct Rectangle {
+    length: f64,
+    height: f64,
+}
 #[allow(dead_code)]
-struct Triangle  { length: f64, height: f64 }
+struct Triangle {
+    length: f64,
+    height: f64,
+}
 
 // 通用“T”必须实现“Debug”。无论哪种类型，这都会正常工作。
 fn print_debug<T: Debug>(t: &T) {
@@ -33,11 +40,19 @@ fn print_debug<T: Debug>(t: &T) {
 
 // `T` 必须实现 `HasArea`。任何满足的类型绑定
 // 可以访问“HasArea”的函数“area”。
-fn area<T: HasArea>(t: &T) -> f64 { t.area() }
+fn area<T: HasArea>(t: &T) -> f64 {
+    t.area()
+}
 
 fn main() {
-    let rectangle = Rectangle { length: 3.0, height: 4.0 };
-    let _triangle = Triangle  { length: 3.0, height: 4.0 };
+    let rectangle = Rectangle {
+        length: 3.0,
+        height: 4.0,
+    };
+    let _triangle = Triangle {
+        length: 3.0,
+        height: 4.0,
+    };
 
     print_debug(&rectangle);
     println!("Area: {}", area(&rectangle));

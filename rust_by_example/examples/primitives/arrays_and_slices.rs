@@ -4,7 +4,6 @@
 /// 切片是一个两个字的对象；第一个字是指向数据的指针，第二个字是切片的长度。
 /// 字大小与 usize 相同，由处理器架构决定，例如 x86-64 上是 64 位。
 /// 切片可用于借用数组的一部分并具有类型签名&[T]。
-
 use std::mem;
 
 // This function borrows a slice.
@@ -39,7 +38,7 @@ fn main() {
     // `starting_index` 是切片中的第一个位置。
     // `ending_index` 比切片中的最后一个位置多 1。
     println!("Borrow a section of the array as a slice.");
-    analyze_slice(&ys[1 .. 4]);
+    analyze_slice(&ys[1..4]);
 
     // 空切片 `&[]` 的示例
     let empty_array: [u32; 0] = [];
@@ -50,7 +49,8 @@ fn main() {
     // `Option`。这可以进行如下所示的匹配，或者
     // 如果你希望程序以一条不错的消息退出而不是愉快地继续，
     // 则可以与“.expect()”一起使用。
-    for i in 0..xs.len() + 1 { // Oops, one element too far!
+    for i in 0..xs.len() + 1 {
+        // Oops, one element too far!
         match xs.get(i) {
             Some(xval) => println!("{}: {}", i, xval),
             None => println!("Slow down! {} is too far!", i),

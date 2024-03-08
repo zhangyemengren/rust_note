@@ -1,34 +1,32 @@
 use std::mem;
 
-pub struct List{
-    head: Link
+pub struct List {
+    head: Link,
 }
 
-struct Node{
+struct Node {
     elem: i32,
     next: Link,
 }
-enum Link{
+enum Link {
     Empty,
     More(Box<Node>),
 }
 
-impl List{
-    pub fn new() -> Self{
-        List{head: Link::Empty}
+impl List {
+    pub fn new() -> Self {
+        List { head: Link::Empty }
     }
-    pub fn push(&mut self, elem: i32){
-        let new_node = Box::new(Node{
+    pub fn push(&mut self, elem: i32) {
+        let new_node = Box::new(Node {
             elem,
-            next: mem::replace(&mut self.head, Link::Empty)
+            next: mem::replace(&mut self.head, Link::Empty),
         });
         self.head = Link::More(new_node);
     }
-    pub fn pop(&mut self) -> Option<i32>{
-        match mem::replace(&mut self.head, Link::Empty){
-            Link::Empty => {
-                None
-            }
+    pub fn pop(&mut self) -> Option<i32> {
+        match mem::replace(&mut self.head, Link::Empty) {
+            Link::Empty => None,
             Link::More(node) => {
                 self.head = node.next;
                 Some(node.elem)
@@ -36,23 +34,22 @@ impl List{
         }
     }
 }
-
-impl Drop for List{
-    fn drop(&mut self){
+// 防止递归清理
+impl Drop for List {
+    fn drop(&mut self) {
         let mut cur_link = mem::replace(&mut self.head, Link::Empty);
-        while let Link::More(mut boxed_node) = cur_link{
+        while let Link::More(mut boxed_node) = cur_link {
             cur_link = mem::replace(&mut boxed_node.next, Link::Empty);
         }
     }
-
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use super::List;
 
     #[test]
-    fn basics(){
+    fn basics() {
         let mut list = List::new();
 
         assert_eq!(list.pop(), None);

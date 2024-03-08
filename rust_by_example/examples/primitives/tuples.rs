@@ -2,7 +2,6 @@
 /// 每个元组本身都是一个具有类型签名的值 (T1, T2, ...)，
 /// 其中T1，T2是其成员的类型。函数可以使用元组返回多个值，因为元组可以保存任意数量的值。
 
-
 // 元组可以用作函数参数和返回值。
 fn reverse(pair: (i32, bool)) -> (bool, i32) {
     // let 可用于将元组的成员绑定到变量。
@@ -17,10 +16,9 @@ struct Matrix(f32, f32, f32, f32);
 
 fn main() {
     // 具有多个不同类型的元组。
-    let long_tuple = (1u8, 2u16, 3u32, 4u64,
-                      -1i8, -2i16, -3i32, -4i64,
-                      0.1f32, 0.2f64,
-                      'a', true);
+    let long_tuple = (
+        1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true,
+    );
 
     // 可以使用元组索引从元组中提取值。
     println!("Long tuple first value: {}", long_tuple.0);
@@ -43,8 +41,16 @@ fn main() {
     println!("The reversed pair is {:?}", reverse(pair));
 
     // 要创建一个元素的元组，需要使用逗号来分隔来自括号的元素 否则就是括号内的类型而非元组
-    println!("One element tuple: {:?} and the type is {}", (5u32,), std::any::type_name::<(u32,)>());
-    println!("Just an integer: {:?} and the type is {}", (5u32), std::any::type_name::<(u32)>());
+    println!(
+        "One element tuple: {:?} and the type is {}",
+        (5u32,),
+        std::any::type_name::<(u32,)>()
+    );
+    println!(
+        "Just an integer: {:?} and the type is {}",
+        (5u32),
+        std::any::type_name::<(u32)>()
+    );
 
     // 可以对元组进行解构以创建绑定。
     let tuple = (1, "hello", 4.5, true);

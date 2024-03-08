@@ -11,7 +11,10 @@ struct Book {
 
 // 这个函数需要获取book的引用
 fn borrow_book(book: &Book) {
-    println!("I immutably borrowed {} - {} edition", book.title, book.year);
+    println!(
+        "I immutably borrowed {} - {} edition",
+        book.title, book.year
+    );
 }
 
 // 此函数引用可变book并将“年份”更改为 2014 年

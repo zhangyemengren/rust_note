@@ -10,7 +10,6 @@
 ///     D: TraitE + TraitF {}
 /// 使用 where 子句比使用普通语法更具表现力。
 /// 下例中的 impl 不能在没有 where 子句的情况下直接表达：
-
 use std::fmt::Debug;
 
 trait PrintInOption {
@@ -18,8 +17,10 @@ trait PrintInOption {
 }
 
 // 因为我们必须将其表达为“T: Debug”或使用另一种间接方法，所以这需要一个“where”子句：
-impl<T> PrintInOption for T where
-    Option<T>: Debug {
+impl<T> PrintInOption for T
+where
+    Option<T>: Debug,
+{
     // 我们希望“Option<T>: Debug”作为我们的边界，因为这就是要打印的内容。
     // 否则就会使用错误的界限。
     fn print_in_option(self) {

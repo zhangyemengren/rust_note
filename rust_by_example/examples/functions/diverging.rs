@@ -26,7 +26,7 @@ fn main() {
         let mut acc = 0;
         for i in 0..up_to {
             // 请注意，由于“addition”变量的类型，此匹配表达式的返回类型必须为 u32。
-            let addition: u32 = match i%2 == 1 {
+            let addition: u32 = match i % 2 == 1 {
                 // “i”变量的类型为 u32，这完全没问题。
                 true => i,
                 // 另一方面，“继续”表达式不返回 u32，
@@ -38,5 +38,8 @@ fn main() {
         acc
     }
 
-    println!("Sum of odd numbers up to 9 (excluding): {}", sum_odd_numbers(9));
+    println!(
+        "Sum of odd numbers up to 9 (excluding): {}",
+        sum_odd_numbers(9)
+    );
 }

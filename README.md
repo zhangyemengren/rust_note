@@ -1,3 +1,5 @@
 # learn_rust
-Learn Rust from various information
+代码 + 笔记
 
+## note
+- 使用 /// KEYPOINT: 标记重点

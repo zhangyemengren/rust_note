@@ -66,11 +66,36 @@ pub struct Iter<'a,T>{
     next: Option<&'a Node<T>>,
 }
 
+/// KEYPOINT:
+/// 从Option<Box<T>>到Option<&T>的转换
+/// node.next 的类型是Option<Box<Node<T>>>
+/// 1. as_deref()
+/// 会转换Option<T> (or &Option<T>) to Option<&T::Target>.
+/// 由于智能指针的实现了Deref trait 所以相当于*Box<T> => &T
+/// 2. as_ref().map::<&Node<T>, _>(|node| node)
+/// as_ref()将&Option<Box<Node<T>>>转换为Option<&Box<Node<T>>>
+/// map fn接受一个闭包，闭包的参数是&Box<Node<T>>
+/// Option map的函数签名是
+/// ```pub fn map<U, F>(self, f: F) -> Option<U>
+/// where
+///     F: FnOnce(T) -> U,
+/// ```
+/// 用涡轮鱼语法指定map的返回类型(泛型参数)为&Node<T>
+/// 交给编译器推断node的转换过程
+/// 3. as_ref().map(|node| &**node)
+/// as_ref()将&Option<Box<Node<T>>>转换为Option<&Box<Node<T>>>
+/// map fn接受一个闭包，闭包的参数是&Box<Node<T>>
+/// 手动处理node的转换过程
+/// 第一次解引用 &Box<Node<T>> => Box<Node<T>>
+/// 第二次解引用 Box<Node<T>> => Node<T>
+/// 返回引用的值 &Node<T>
 impl<'a,T> Iterator for Iter<'a,T>  {
     type Item = &'a T;
     fn next(&mut self) -> Option<Self::Item>{
         self.next.map(|node| {
-            self.next = node.next.as_ref().map::<&Node<T>, _>(|node| &node);
+            self.next = node.next.as_deref();
+            // self.next = node.next.as_ref().map::<&Node<T>, _>(|node| node);
+            // self.next = node.next.as_ref().map(|node| &**node);
             &node.elem
         })
     }
@@ -161,6 +186,7 @@ mod test {
         assert_eq!(iter.next(), Some(&3));
         assert_eq!(iter.next(), Some(&2));
         assert_eq!(iter.next(), Some(&1));
+        assert_eq!(iter.next(), None);
     }
 
     #[test]

@@ -3,5 +3,6 @@ members = [
     "rust_by_example",
     "ffi/*",
     "too_many_lists",
+    "compiler",
 ]
 resolver = "2"

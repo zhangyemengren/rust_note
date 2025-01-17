@@ -1,8 +1,5 @@
 [workspace]
 members = [
-    "rust_by_example",
-    "ffi/*",
-    "too_many_lists",
-    "compiler",
+    "notes/*/*"
 ]
-resolver = "2"
+resolver = "3"

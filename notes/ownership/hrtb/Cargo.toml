@@ -1,4 +1,4 @@
 [package]
-name = "too_many_lists"
+name = "note_ownership_hrtb"
 version = "0.1.0"
 edition = "2021"

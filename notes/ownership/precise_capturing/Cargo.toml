@@ -1,0 +1,15 @@
+[package]
+name = "note_ownership_precise_capturing"
+version = "0.1.0"
+edition = "2021"
+
+
+[[example]]
+name = "overcapture"
+path = "examples/overcapture.rs"
+
+[[example]]
+name = "generic"
+path = "examples/generic.rs"
+
+

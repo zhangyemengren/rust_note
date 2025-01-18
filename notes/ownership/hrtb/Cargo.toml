@@ -2,3 +2,15 @@
 name = "note_ownership_hrtb"
 version = "0.1.0"
 edition = "2021"
+
+[[example]]
+name = "hrtb_fn"
+path = "examples/hrtb_fn.rs"
+
+[[example]]
+name = "hrtb_trait"
+path = "examples/hrtb_trait.rs"
+
+
+
+

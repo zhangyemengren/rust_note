@@ -1,7 +1,7 @@
 [package]
 name = "note_ownership_hrtb"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [[example]]
 name = "hrtb_fn"

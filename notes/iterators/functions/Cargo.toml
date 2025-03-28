@@ -1,0 +1,10 @@
+[package]
+name = "iterators"
+version = "0.1.0"
+edition = "2024"
+
+[[example]]
+name = "next"
+path = "examples/next.rs"
+
+[dependencies]

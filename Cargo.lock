@@ -3,9 +3,17 @@
 version = 4
 
 [[package]]
+name = "iterators"
+version = "0.1.0"
+
+[[package]]
 name = "note_ownership_hrtb"
 version = "0.1.0"
 
 [[package]]
 name = "note_ownership_precise_capturing"
+version = "0.1.0"
+
+[[package]]
+name = "thread"
 version = "0.1.0"

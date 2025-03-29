@@ -3,6 +3,9 @@
 fn main() {
     let arr = vec![1, 2, 3, 4, 5];
     let mut iter = arr.iter();
+    // iter.size_hint按元组返回迭代器下限和上限
+    // 下限等于len(需实现ExactSizeIterator) 上限如果是None意味着要么没有已知的上界，要么上界大于usize。
+    println!("{:?} {:?}", iter.len(), iter.size_hint());
     println!("{:?}", iter.next());
     println!("{:?}", iter.next());
     println!("{:?}", iter.next());
@@ -11,4 +14,13 @@ fn main() {
     // 为空时返回None 可继续迭代
     println!("{:?}", iter.next());
     println!("{:?}", iter.next());
+    println!("{:?} {:?}", iter.len(), iter.size_hint());
+    // 无上限迭代器
+    let mut iter = 0..;
+    println!("{:?}", iter.size_hint());
+    println!("{:?}", iter.next());
+    println!("{:?}", iter.next());
+    println!("{:?}", iter.next());
+    println!("{:?}", iter.next());
+    println!("{:?}", iter.size_hint());
 }

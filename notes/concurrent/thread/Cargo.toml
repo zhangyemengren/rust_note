@@ -3,8 +3,4 @@ name = "thread"
 version = "0.1.0"
 edition = "2024"
 
-[[example]]
-name = "thread_join"
-path = "examples/thread_join.rs"
-
 [dependencies]

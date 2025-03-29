@@ -4,12 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 
-[[example]]
-name = "overcapture"
-path = "examples/overcapture.rs"
-
-[[example]]
-name = "generic"
-path = "examples/generic.rs"
-
 

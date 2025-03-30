@@ -18,6 +18,10 @@ impl<'a, 'b> Ty<'a, 'b> {
     fn foo2(x: &'a (), _: &'b ()) -> impl use<'a> + Sized + Debug {
         x
     }
+    // 错误 只捕获了'a 却返回了'b
+    // fn foo3(_: &'a (), x: &'b ()) -> impl use<'a> + Sized + Debug {
+    //     x
+    // }
 }
 
 fn main() {

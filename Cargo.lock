@@ -3,17 +3,17 @@
 version = 4
 
 [[package]]
-name = "iterators"
+name = "concurrent"
 version = "0.1.0"
 
 [[package]]
-name = "note_ownership_hrtb"
+name = "deconstruction"
 version = "0.1.0"
 
 [[package]]
-name = "note_ownership_precise_capturing"
+name = "iterator"
 version = "0.1.0"
 
 [[package]]
-name = "thread"
+name = "ownership"
 version = "0.1.0"

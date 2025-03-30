@@ -1,7 +1,6 @@
 [package]
-name = "note_ownership_precise_capturing"
+name = "ownership"
 version = "0.1.0"
 edition = "2024"
 
-
-
+[dependencies]

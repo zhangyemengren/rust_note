@@ -23,4 +23,3 @@ fn main() {
     *iter.peek_mut().unwrap() = &98;
     println!("{:?}", iter.collect::<Vec<_>>());
 }
-

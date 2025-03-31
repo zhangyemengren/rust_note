@@ -35,5 +35,4 @@ fn main() {
     // 双重解构
     let a = [0, 1, 2];
     let _iter = a.iter().filter(|&&x| x > 1); // 使用&&x模式直接解构出i32值
-    
 }

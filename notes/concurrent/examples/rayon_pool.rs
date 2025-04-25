@@ -8,10 +8,14 @@ fn main() {
         .unwrap();
 
     // 只会有3个线程执行任务
-    rayon::scope(|s|{
+    rayon::scope(|s| {
         (0..50).for_each(|i| {
             s.spawn(move |_| {
-                println!("循环{} 自定义线程名-{}", i, thread::current().name().unwrap());
+                println!(
+                    "循环{} 自定义线程名-{}",
+                    i,
+                    thread::current().name().unwrap()
+                );
             });
         });
     });

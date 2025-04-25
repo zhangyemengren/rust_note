@@ -1,7 +1,7 @@
+use rayon;
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
-use rayon;
 
 fn main() {
     // 使用rayon库创建一个线程池, 包含4个线程
@@ -18,7 +18,11 @@ fn main() {
     let op = move || {
         let mut counter = counter.lock().unwrap();
         *counter += 1;
-        println!("线程 {:?} 在执行任务, 数量: {}", thread::current().id(), *counter);
+        println!(
+            "线程 {:?} 在执行任务, 数量: {}",
+            thread::current().id(),
+            *counter
+        );
     };
 
     // 直接使用spawn 启动任务
@@ -31,11 +35,11 @@ fn main() {
 
     // 直接使用scope 启动多个任务（确保所有任务完成后再返回）
     pool.scope(|s| {
-       println!("scope 方法执行");
+        println!("scope 方法执行");
         s.spawn(|_| {
             println!("scope 中spawn 一个任务");
         });
-        s.spawn(|_| {println!("scope 中spawn 另一个任务")})
+        s.spawn(|_| println!("scope 中spawn 另一个任务"))
     });
     println!("scope会阻塞 等待所有任务返回");
 
@@ -43,10 +47,16 @@ fn main() {
     pool.scope_fifo(|s| {
         println!("scope_fifo 方法执行");
         s.spawn_fifo(|_| {
-            println!("scope_fifo spawn_fifo任务1 线程{:?}", thread::current().id());
+            println!(
+                "scope_fifo spawn_fifo任务1 线程{:?}",
+                thread::current().id()
+            );
         });
         s.spawn_fifo(|_| {
-            println!("scope_fifo spawn_fifo任务2 线程{:?}", thread::current().id());
+            println!(
+                "scope_fifo spawn_fifo任务2 线程{:?}",
+                thread::current().id()
+            );
         });
     });
 
@@ -54,10 +64,16 @@ fn main() {
     pool.in_place_scope_fifo(|s| {
         println!("in_place_scope_fifo 方法执行");
         s.spawn_fifo(|_| {
-            println!("in_place_scope_fifo spawn_fifo任务1 线程{:?}", thread::current().id());
+            println!(
+                "in_place_scope_fifo spawn_fifo任务1 线程{:?}",
+                thread::current().id()
+            );
         });
         s.spawn_fifo(|_| {
-            println!("in_place_scope_fifo spawn_fifo任务2 线程{:?}", thread::current().id());
+            println!(
+                "in_place_scope_fifo spawn_fifo任务2 线程{:?}",
+                thread::current().id()
+            );
         });
     });
 

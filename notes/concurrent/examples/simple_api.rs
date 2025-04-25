@@ -1,5 +1,5 @@
-use std::thread;
 use num_cpus;
+use std::thread;
 
 fn main() {
     // 基础信息
@@ -12,5 +12,4 @@ fn main() {
 
     // 获取CPU核心数 第三方crate
     println!("CPU核心数: {:?}", num_cpus::get());
-    
 }

@@ -33,6 +33,6 @@ fn thread_park2() {
     handle.join().unwrap();
 }
 fn main() {
-    thread_park();   
+    thread_park();
     thread_park2();
 }

@@ -4,7 +4,7 @@ use std::time::Duration;
 /// yield_now 主动让出CPU 类似异步中的await
 fn main() {
     println!("主线程开始执行");
-    
+
     let handle1 = thread::spawn(|| {
         println!("线程1开始执行");
         // 添加一些计算工作
@@ -26,7 +26,7 @@ fn main() {
         }
         println!("线程2完成");
     });
-    
+
     let handle3 = thread::spawn(|| {
         println!("线程3开始执行");
         sleep(Duration::from_millis(100));
@@ -42,6 +42,6 @@ fn main() {
     handle1.join().unwrap();
     handle2.join().unwrap();
     handle3.join().unwrap();
-    
+
     println!("所有线程执行完毕");
 }

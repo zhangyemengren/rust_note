@@ -16,9 +16,9 @@ async fn main() {
     let start = std::time::Instant::now();
 
     // 启动多个并发任务
-    let handles = (0..10).map(|_| {
-        task::spawn(handle_request())
-    }).collect::<Vec<_>>();
+    let handles = (0..10)
+        .map(|_| task::spawn(handle_request()))
+        .collect::<Vec<_>>();
 
     // 等待所有任务完成（可选）
     for handle in handles {

@@ -4,7 +4,7 @@ use std::sync::atomic::{AtomicI32, Ordering};
 #[tokio::main]
 async fn main() {
     let mut count = 0;
-    loop{
+    loop {
         // 执行顺序乱序
         tokio::select! {
             _ = async { }, if count < 1 => {
@@ -28,11 +28,10 @@ async fn main() {
             }
         }
     }
-    
-    
+
     let count = Arc::new(AtomicI32::new(0));
     let mut arr = vec![];
-    loop{
+    loop {
         tokio::select! {
             biased; // 保持 biased 轮询顺序
 
@@ -68,11 +67,11 @@ async fn main() {
 
             // 分支 4: count < 4 时执行
             v = async {
-                let count_clone = Arc::clone(&count); 
+                let count_clone = Arc::clone(&count);
                 count_clone.fetch_add(1, Ordering::SeqCst);
                 count_clone.load(Ordering::SeqCst)
             }, if count.load(Ordering::SeqCst) < 4 => {
-                 println!("Branch 4 selected. count was < 4. New value: {}", v); 
+                 println!("Branch 4 selected. count was < 4. New value: {}", v);
                 arr.push(v);
             }
 
@@ -82,13 +81,13 @@ async fn main() {
                 count_clone.fetch_add(1, Ordering::SeqCst);
                 count_clone.load(Ordering::SeqCst)
             }, if count.load(Ordering::SeqCst) < 5 => {
-                println!("Branch 5 selected. count was < 5. New value: {}", v); 
+                println!("Branch 5 selected. count was < 5. New value: {}", v);
                 arr.push(v);
             }
 
             // 如果以上条件都不满足 (count >= 5)，则退出循环
             else => {
-                println!("No branches selected or count >= 5. Breaking loop."); 
+                println!("No branches selected or count >= 5. Breaking loop.");
                 break;
             }
         }

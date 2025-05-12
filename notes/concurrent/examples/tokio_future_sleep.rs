@@ -2,7 +2,7 @@ use std::marker::PhantomPinned;
 use std::pin::Pin;
 use std::task::{Context, Poll};
 use std::time::Duration;
-use tokio::time::{sleep, Sleep};
+use tokio::time::{Sleep, sleep};
 
 struct Delay {
     sleep: Sleep,

@@ -5,5 +5,5 @@ fn main() {
 
     let box1 = Box::new(10);
     let raw_ptr = Box::into_raw(box1); // 转成裸指针
-    let back_to_box = unsafe{Box::from_raw(raw_ptr)}; // 裸指针转回Box
+    let back_to_box = unsafe { Box::from_raw(raw_ptr) }; // 裸指针转回Box
 }

@@ -1,0 +1,8 @@
+[package]
+name = "cli_csv"
+version = "0.1.0"
+authors = ["zhangyemengren <624593758@qq.com>"]
+edition = "2024"
+
+[dependencies]
+clap = {workspace = true}

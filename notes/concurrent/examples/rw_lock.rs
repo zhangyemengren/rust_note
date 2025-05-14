@@ -2,7 +2,7 @@ use std::sync::RwLock;
 use std::thread;
 
 fn main() {
-   let lock = RwLock::new(0);
+    let lock = RwLock::new(0);
 
     thread::scope(|s| {
         s.spawn(|| {
@@ -15,7 +15,7 @@ fn main() {
         });
         s.spawn(|| {
             let r = lock.read().unwrap();
-            println!("{:?}", r);       
+            println!("{:?}", r);
         });
     })
 }

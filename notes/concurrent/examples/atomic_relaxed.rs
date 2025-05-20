@@ -12,19 +12,19 @@ fn main() {
 
     let mut handles = vec![];
 
-    for _ in 0..10{
+    for _ in 0..10 {
         let counter_clone = Arc::clone(&counter);
         let handle = thread::spawn(move || {
-            for _ in 0..100{
-                // fetch_add 返回之前的值，并添加第一个参数到原子变量 
+            for _ in 0..100 {
+                // fetch_add 返回之前的值，并添加第一个参数到原子变量
                 // Relaxed 表示我们只关心这个操作的原子性，不关心与其他内存操作的顺序
                 counter_clone.fetch_add(1, Ordering::Relaxed);
             }
         });
         handles.push(handle);
     }
-    
-    for handle in handles{
+
+    for handle in handles {
         handle.join().unwrap();
     }
     println!("最终计数器为:{}", counter.load(Ordering::Relaxed));

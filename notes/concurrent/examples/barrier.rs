@@ -13,20 +13,20 @@ fn main() {
     for i in 0..thread_count {
         let barrier_clone = barrier.clone();
         let handle = std::thread::spawn(move || {
-           for round in 0..2{
-               println!("线程{}, 第{}轮, 等待", i ,round);
-               thread::sleep(Duration::from_millis(500));
-               
-               barrier_clone.wait();
+            for round in 0..2 {
+                println!("线程{}, 第{}轮, 等待", i, round);
+                thread::sleep(Duration::from_millis(500));
 
-               println!("线程{}, 第{}轮, 继续执行", i ,round);
-               thread::sleep(Duration::from_millis(500));
-           }
+                barrier_clone.wait();
+
+                println!("线程{}, 第{}轮, 继续执行", i, round);
+                thread::sleep(Duration::from_millis(500));
+            }
         });
         handles.push(handle);
     }
-    
-    for h in handles{
+
+    for h in handles {
         h.join().unwrap();
     }
     println!("执行结束")

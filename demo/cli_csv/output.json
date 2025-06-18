@@ -1,0 +1,37 @@
+[
+  {
+    "Name": "Lionel Messi",
+    "Position": "Forward",
+    "DOB": "1987-06-24",
+    "Nationality": "Argentinian",
+    "Kit Number": 10
+  },
+  {
+    "Name": "Cristiano Ronaldo",
+    "Position": "Forward",
+    "DOB": "1985-02-05",
+    "Nationality": "Portuguese",
+    "Kit Number": 7
+  },
+  {
+    "Name": "Neymar Jr",
+    "Position": "Forward",
+    "DOB": "1992-02-05",
+    "Nationality": "Brazilian",
+    "Kit Number": 10
+  },
+  {
+    "Name": "Kylian Mbappé",
+    "Position": "Forward",
+    "DOB": "1998-12-20",
+    "Nationality": "French",
+    "Kit Number": 7
+  },
+  {
+    "Name": "Kevin De Bruyne",
+    "Position": "Midfielder",
+    "DOB": "1991-06-28",
+    "Nationality": "Belgian",
+    "Kit Number": 17
+  }
+]
